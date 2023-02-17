@@ -1,4 +1,4 @@
-import {
+import type {
   CamelCase,
   ConstantCase,
   DotCase,
@@ -6,6 +6,7 @@ import {
   NoCase,
   PascalCase,
   SnakeCase,
+  LowerCase,
 } from "./types";
 
 export * from "./types";
@@ -17,6 +18,7 @@ type SnakeCaseFn = <T extends string>(str: T) => SnakeCase<T>;
 type ConstantCaseFn = <T extends string>(str: T) => ConstantCase<T>;
 type KebabCaseFn = <T extends string>(str: T) => KebabCase<T>;
 type DotCaseFn = <T extends string>(str: T) => DotCase<T>;
+type LowerCaseFn = <T extends string>(str: T) => LowerCase<T>;
 
 const format = (str: string) =>
   str
@@ -59,3 +61,5 @@ export const kebabCase = ((str: string) =>
 
 export const dotCase = ((str: string) =>
   noCase(str).replace(/ /g, ".").toLowerCase()) as DotCaseFn;
+
+export const lowerCase = ((str: string) => str.toLowerCase()) as LowerCaseFn;

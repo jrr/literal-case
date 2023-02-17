@@ -13,6 +13,8 @@ import {
   KebabCase,
   dotCase,
   DotCase,
+  LowerCase,
+  lowerCase,
 } from "../src";
 
 const table = [
@@ -170,5 +172,26 @@ describe("dot case", () => {
   testCase(
     table[7],
     "long.long.long.long.long.long.long.long.long.long.long.long.long.long"
+  );
+});
+
+describe("lower case", () => {
+  const testCase = <T extends string>(input: T, expected: LowerCase<T>) => {
+    it(`${input} -> ${expected}`, () => {
+      const actual = lowerCase(input);
+      expect(actual).toBe(expected);
+    });
+  };
+
+  testCase(table[0], "");
+  testCase(table[1], "test string");
+  testCase(table[2], "test string");
+  testCase(table[3], "teststring");
+  testCase(table[4], "__test_string__");
+  testCase(table[5], "testn1");
+  testCase(table[6], "test 1.2.3");
+  testCase(
+    table[7],
+    "longlonglonglonglonglonglonglonglonglonglonglonglonglong"
   );
 });

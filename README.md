@@ -24,6 +24,7 @@ yarn add literal-case
 - [`kebabCase`](#kebabcase)
 - [`dotCase`](#dotcase)
 - [`noCase`](#nocase)
+- [`lowerCase`](#lowercase)
 
 ## Case Types
 
@@ -34,6 +35,7 @@ yarn add literal-case
 - [`KebabCase<T>`](#kebabcaset)
 - [`DotCase<T>`](#dotcaset)
 - [`NoCase<T,D>`](#nocasetd)
+- [`LowerCase<T>`](#lowercaset)
 
 ## Case Converters
 
@@ -77,6 +79,12 @@ const str: "foo.bar" = dotCase("foo bar");
 
 ```ts
 const str: "foo Bar" = noCase("fooBar");
+```
+
+### `lowerCase`
+
+```ts
+const str: "foo bar" = noCase("foo Bar");
 ```
 
 ## Case Types
@@ -131,6 +139,13 @@ type Result0 = NoCase<"fooBar">;
 
 // Expect: "foo,Bar"
 type Result1 = NoCase<"fooBar", ",">;
+```
+
+### `LowerCase<T>`
+
+```ts
+// Expect: "foobar"
+type Result0 = LowerCase<"fooBar">;
 ```
 
 ## License

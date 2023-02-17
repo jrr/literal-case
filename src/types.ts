@@ -161,3 +161,5 @@ export type ConstantCase<S extends string> = Uppercase<NoCase<S, "_">>;
 export type KebabCase<S extends string> = Lowercase<NoCase<S, "-">>;
 
 export type DotCase<S extends string> = Lowercase<NoCase<S, ".">>;
+
+export type LowerCase<S extends string> = Lowercase<S>;
